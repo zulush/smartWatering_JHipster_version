@@ -1,0 +1,44 @@
+{
+  "applications": "*",
+  "changelogDate": "20220418154212",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "boitier",
+  "fields": [
+    {
+      "fieldName": "reference",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "code",
+      "fieldType": "String",
+      "fieldValidateRules": ["minlength"],
+      "fieldValidateRulesMinlength": "64"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Boitier",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "installation",
+      "otherEntityRelationshipName": "boitier",
+      "relationshipName": "installation",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "connecte",
+      "otherEntityRelationshipName": "boitier",
+      "relationshipName": "connexion",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

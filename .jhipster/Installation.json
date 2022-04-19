@@ -1,0 +1,38 @@
+{
+  "applications": "*",
+  "changelogDate": "20220418154211",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "installation",
+  "fields": [
+    {
+      "fieldName": "dateDabut",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateFin",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Installation",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "zone",
+      "otherEntityRelationshipName": "installation",
+      "relationshipName": "zone",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "boitier",
+      "otherEntityRelationshipName": "installation",
+      "relationshipName": "boitier",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

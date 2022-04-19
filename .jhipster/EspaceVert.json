@@ -1,0 +1,38 @@
+{
+  "applications": "*",
+  "changelogDate": "20220418154204",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "espace_vert",
+  "fields": [
+    {
+      "fieldName": "lebelle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "photo",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "EspaceVert",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "zone",
+      "otherEntityRelationshipName": "espaceVert",
+      "relationshipName": "zone",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "extraUser",
+      "otherEntityRelationshipName": "espaceVert",
+      "relationshipName": "extraUser",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

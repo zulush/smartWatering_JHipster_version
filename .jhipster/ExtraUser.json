@@ -1,0 +1,38 @@
+{
+  "applications": "*",
+  "changelogDate": "20220418154202",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "extra_user",
+  "fields": [
+    {
+      "fieldName": "phone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ExtraUser",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "extraUser",
+      "ownerSide": true,
+      "relationshipName": "internalUser",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "espaceVert",
+      "otherEntityRelationshipName": "extraUser",
+      "relationshipName": "espaceVert",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

@@ -1,0 +1,39 @@
+{
+  "applications": "*",
+  "changelogDate": "20220418154209",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "plantage",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "ZonedDateTime",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "nombre",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Plantage",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "plante",
+      "otherEntityRelationshipName": "plantage",
+      "relationshipName": "plante",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "zone",
+      "otherEntityRelationshipName": "plantage",
+      "relationshipName": "zone",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

@@ -1,0 +1,148 @@
+
+entity User {
+}
+
+entity ExtraUser {
+    phone String,
+    address String
+}
+
+entity Notification {
+	date ZonedDateTime required,
+    content String required,
+    vu Boolean required
+}
+
+relationship OneToMany {
+	Zone{notification} to Notification
+}
+
+entity EspaceVert {
+    lebelle String,
+    photo ImageBlob,
+}
+
+entity Zone {
+    libelle String,
+    superficie Float,
+    photo ImageBlob
+}
+
+entity Grandeur {
+    type String required,
+    valeur Float required,
+    unite String required,
+    date ZonedDateTime required
+}
+
+entity TypeSol {
+    lebelle String required,
+    description String
+}
+
+entity Plante {
+    libelle String required,
+    photo ImageBlob,
+    racine String
+}
+
+entity Plantage {
+	date ZonedDateTime required,
+    nombre Integer required,
+}
+
+entity TypePlante {
+    libelle String required,
+    humiditeMax Float,
+    humiditeMin Float required,
+    temperature Float,
+    luminosite Float
+}
+
+entity Installation {
+	dateDabut ZonedDateTime required,
+    dateFin ZonedDateTime
+}
+
+entity Boitier {
+    reference Integer required,
+    type String,
+    code String minlength(64),
+}
+
+entity Connecte {
+	fonctionnel Boolean,
+    branche String,
+    frequence Float,
+    marge Float
+}
+
+
+entity Capteur {
+	ref String,
+    type String,
+    photo ImageBlob
+}
+
+entity Arrosage {
+    date ZonedDateTime required,
+    litresEau Float,
+}
+
+relationship OneToOne {
+  ExtraUser{internalUser} to User
+}
+
+relationship OneToMany {
+	ExtraUser{espaceVert} to EspaceVert
+}
+
+relationship OneToMany {
+	EspaceVert{zone} to Zone,
+}
+
+relationship OneToMany {
+	Zone{grandeur} to Grandeur,
+}
+
+relationship ManyToOne {
+	Zone{typeSol} to TypeSol
+}
+
+relationship OneToMany {
+	Zone{plantage} to Plantage
+}
+
+relationship ManyToOne {
+	Plantage{plante} to Plante
+}
+
+relationship ManyToOne {
+	Plante{type} to TypePlante
+}
+
+relationship ManyToOne {
+	Installation{zone} to Zone
+}
+
+relationship OneToMany {
+	Boitier{installation} to Installation
+}
+
+relationship OneToMany {
+	Boitier{connexion} to Connecte
+}
+
+relationship ManyToOne {
+	Connecte{capteur} to Capteur
+}
+
+relationship OneToMany {
+	Zone{arrosage} to Arrosage
+}
+
+
+
+
+
+

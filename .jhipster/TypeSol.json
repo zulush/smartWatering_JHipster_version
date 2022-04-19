@@ -1,0 +1,25 @@
+{
+  "applications": "*",
+  "changelogDate": "20220418154207",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "type_sol",
+  "fields": [
+    {
+      "fieldName": "lebelle",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "TypeSol",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}
