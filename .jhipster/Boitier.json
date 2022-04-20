@@ -15,6 +15,14 @@
       "fieldType": "String"
     },
     {
+      "fieldName": "nbrBranchBoitier",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nbrBranchArduino",
+      "fieldType": "Integer"
+    },
+    {
       "fieldName": "code",
       "fieldType": "String",
       "fieldValidateRules": ["minlength"],

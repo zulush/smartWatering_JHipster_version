@@ -17,6 +17,18 @@
             <span>{{ boitier.type }}</span>
           </dd>
           <dt>
+            <span>Nbr Branch Boitier</span>
+          </dt>
+          <dd>
+            <span>{{ boitier.nbrBranchBoitier }}</span>
+          </dd>
+          <dt>
+            <span>Nbr Branch Arduino</span>
+          </dt>
+          <dd>
+            <span>{{ boitier.nbrBranchArduino }}</span>
+          </dd>
+          <dt>
             <span>Code</span>
           </dt>
           <dd>

@@ -30,6 +30,8 @@
             <th scope="row"><span>ID</span></th>
             <th scope="row"><span>Reference</span></th>
             <th scope="row"><span>Type</span></th>
+            <th scope="row"><span>Nbr Branch Boitier</span></th>
+            <th scope="row"><span>Nbr Branch Arduino</span></th>
             <th scope="row"><span>Code</span></th>
             <th scope="row"></th>
           </tr>
@@ -41,6 +43,8 @@
             </td>
             <td>{{ boitier.reference }}</td>
             <td>{{ boitier.type }}</td>
+            <td>{{ boitier.nbrBranchBoitier }}</td>
+            <td>{{ boitier.nbrBranchArduino }}</td>
             <td>{{ boitier.code }}</td>
             <td class="text-right">
               <div class="btn-group">

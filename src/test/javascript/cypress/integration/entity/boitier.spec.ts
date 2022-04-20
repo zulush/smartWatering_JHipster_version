@@ -16,7 +16,7 @@ describe('Boitier e2e test', () => {
   const boitierPageUrlPattern = new RegExp('/boitier(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const boitierSample = { reference: 19860 };
+  const boitierSample = { reference: 22703 };
 
   let boitier: any;
 
@@ -152,9 +152,13 @@ describe('Boitier e2e test', () => {
 
       cy.get(`[data-cy="type"]`).type('c services IB').should('have.value', 'c services IB');
 
+      cy.get(`[data-cy="nbrBranchBoitier"]`).type('74977').should('have.value', '74977');
+
+      cy.get(`[data-cy="nbrBranchArduino"]`).type('52581').should('have.value', '52581');
+
       cy.get(`[data-cy="code"]`)
-        .type('Chili Gibraltar overridingXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
-        .should('have.value', 'Chili Gibraltar overridingXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');
+        .type('cXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
+        .should('have.value', 'cXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');
 
       cy.get(entityCreateSaveButtonSelector).click();
 

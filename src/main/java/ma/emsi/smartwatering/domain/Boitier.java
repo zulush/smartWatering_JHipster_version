@@ -31,6 +31,12 @@ public class Boitier implements Serializable {
     @Column(name = "type")
     private String type;
 
+    @Column(name = "nbr_branch_boitier")
+    private Integer nbrBranchBoitier;
+
+    @Column(name = "nbr_branch_arduino")
+    private Integer nbrBranchArduino;
+
     @Size(min = 64)
     @Column(name = "code")
     private String code;
@@ -84,6 +90,32 @@ public class Boitier implements Serializable {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public Integer getNbrBranchBoitier() {
+        return this.nbrBranchBoitier;
+    }
+
+    public Boitier nbrBranchBoitier(Integer nbrBranchBoitier) {
+        this.setNbrBranchBoitier(nbrBranchBoitier);
+        return this;
+    }
+
+    public void setNbrBranchBoitier(Integer nbrBranchBoitier) {
+        this.nbrBranchBoitier = nbrBranchBoitier;
+    }
+
+    public Integer getNbrBranchArduino() {
+        return this.nbrBranchArduino;
+    }
+
+    public Boitier nbrBranchArduino(Integer nbrBranchArduino) {
+        this.setNbrBranchArduino(nbrBranchArduino);
+        return this;
+    }
+
+    public void setNbrBranchArduino(Integer nbrBranchArduino) {
+        this.nbrBranchArduino = nbrBranchArduino;
     }
 
     public String getCode() {
@@ -187,6 +219,8 @@ public class Boitier implements Serializable {
             "id=" + getId() +
             ", reference=" + getReference() +
             ", type='" + getType() + "'" +
+            ", nbrBranchBoitier=" + getNbrBranchBoitier() +
+            ", nbrBranchArduino=" + getNbrBranchArduino() +
             ", code='" + getCode() + "'" +
             "}";
     }

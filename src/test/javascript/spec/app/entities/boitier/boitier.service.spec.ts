@@ -29,7 +29,7 @@ describe('Service Tests', () => {
 
     beforeEach(() => {
       service = new BoitierService();
-      elemDefault = new Boitier(123, 0, 'AAAAAAA', 'AAAAAAA');
+      elemDefault = new Boitier(123, 0, 'AAAAAAA', 0, 0, 'AAAAAAA');
     });
 
     describe('Service methods', () => {
@@ -83,6 +83,8 @@ describe('Service Tests', () => {
           {
             reference: 1,
             type: 'BBBBBB',
+            nbrBranchBoitier: 1,
+            nbrBranchArduino: 1,
             code: 'BBBBBB',
           },
           elemDefault
@@ -111,6 +113,7 @@ describe('Service Tests', () => {
         const patchObject = Object.assign(
           {
             reference: 1,
+            code: 'BBBBBB',
           },
           new Boitier()
         );
@@ -140,6 +143,8 @@ describe('Service Tests', () => {
           {
             reference: 1,
             type: 'BBBBBB',
+            nbrBranchBoitier: 1,
+            nbrBranchArduino: 1,
             code: 'BBBBBB',
           },
           elemDefault

@@ -35,6 +35,12 @@ class BoitierResourceIT {
     private static final String DEFAULT_TYPE = "AAAAAAAAAA";
     private static final String UPDATED_TYPE = "BBBBBBBBBB";
 
+    private static final Integer DEFAULT_NBR_BRANCH_BOITIER = 1;
+    private static final Integer UPDATED_NBR_BRANCH_BOITIER = 2;
+
+    private static final Integer DEFAULT_NBR_BRANCH_ARDUINO = 1;
+    private static final Integer UPDATED_NBR_BRANCH_ARDUINO = 2;
+
     private static final String DEFAULT_CODE = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
     private static final String UPDATED_CODE = "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB";
 
@@ -62,7 +68,12 @@ class BoitierResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Boitier createEntity(EntityManager em) {
-        Boitier boitier = new Boitier().reference(DEFAULT_REFERENCE).type(DEFAULT_TYPE).code(DEFAULT_CODE);
+        Boitier boitier = new Boitier()
+            .reference(DEFAULT_REFERENCE)
+            .type(DEFAULT_TYPE)
+            .nbrBranchBoitier(DEFAULT_NBR_BRANCH_BOITIER)
+            .nbrBranchArduino(DEFAULT_NBR_BRANCH_ARDUINO)
+            .code(DEFAULT_CODE);
         return boitier;
     }
 
@@ -73,7 +84,12 @@ class BoitierResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Boitier createUpdatedEntity(EntityManager em) {
-        Boitier boitier = new Boitier().reference(UPDATED_REFERENCE).type(UPDATED_TYPE).code(UPDATED_CODE);
+        Boitier boitier = new Boitier()
+            .reference(UPDATED_REFERENCE)
+            .type(UPDATED_TYPE)
+            .nbrBranchBoitier(UPDATED_NBR_BRANCH_BOITIER)
+            .nbrBranchArduino(UPDATED_NBR_BRANCH_ARDUINO)
+            .code(UPDATED_CODE);
         return boitier;
     }
 
@@ -97,6 +113,8 @@ class BoitierResourceIT {
         Boitier testBoitier = boitierList.get(boitierList.size() - 1);
         assertThat(testBoitier.getReference()).isEqualTo(DEFAULT_REFERENCE);
         assertThat(testBoitier.getType()).isEqualTo(DEFAULT_TYPE);
+        assertThat(testBoitier.getNbrBranchBoitier()).isEqualTo(DEFAULT_NBR_BRANCH_BOITIER);
+        assertThat(testBoitier.getNbrBranchArduino()).isEqualTo(DEFAULT_NBR_BRANCH_ARDUINO);
         assertThat(testBoitier.getCode()).isEqualTo(DEFAULT_CODE);
     }
 
@@ -149,6 +167,8 @@ class BoitierResourceIT {
             .andExpect(jsonPath("$.[*].id").value(hasItem(boitier.getId().intValue())))
             .andExpect(jsonPath("$.[*].reference").value(hasItem(DEFAULT_REFERENCE)))
             .andExpect(jsonPath("$.[*].type").value(hasItem(DEFAULT_TYPE)))
+            .andExpect(jsonPath("$.[*].nbrBranchBoitier").value(hasItem(DEFAULT_NBR_BRANCH_BOITIER)))
+            .andExpect(jsonPath("$.[*].nbrBranchArduino").value(hasItem(DEFAULT_NBR_BRANCH_ARDUINO)))
             .andExpect(jsonPath("$.[*].code").value(hasItem(DEFAULT_CODE)));
     }
 
@@ -166,6 +186,8 @@ class BoitierResourceIT {
             .andExpect(jsonPath("$.id").value(boitier.getId().intValue()))
             .andExpect(jsonPath("$.reference").value(DEFAULT_REFERENCE))
             .andExpect(jsonPath("$.type").value(DEFAULT_TYPE))
+            .andExpect(jsonPath("$.nbrBranchBoitier").value(DEFAULT_NBR_BRANCH_BOITIER))
+            .andExpect(jsonPath("$.nbrBranchArduino").value(DEFAULT_NBR_BRANCH_ARDUINO))
             .andExpect(jsonPath("$.code").value(DEFAULT_CODE));
     }
 
@@ -188,7 +210,12 @@ class BoitierResourceIT {
         Boitier updatedBoitier = boitierRepository.findById(boitier.getId()).get();
         // Disconnect from session so that the updates on updatedBoitier are not directly saved in db
         em.detach(updatedBoitier);
-        updatedBoitier.reference(UPDATED_REFERENCE).type(UPDATED_TYPE).code(UPDATED_CODE);
+        updatedBoitier
+            .reference(UPDATED_REFERENCE)
+            .type(UPDATED_TYPE)
+            .nbrBranchBoitier(UPDATED_NBR_BRANCH_BOITIER)
+            .nbrBranchArduino(UPDATED_NBR_BRANCH_ARDUINO)
+            .code(UPDATED_CODE);
 
         restBoitierMockMvc
             .perform(
@@ -204,6 +231,8 @@ class BoitierResourceIT {
         Boitier testBoitier = boitierList.get(boitierList.size() - 1);
         assertThat(testBoitier.getReference()).isEqualTo(UPDATED_REFERENCE);
         assertThat(testBoitier.getType()).isEqualTo(UPDATED_TYPE);
+        assertThat(testBoitier.getNbrBranchBoitier()).isEqualTo(UPDATED_NBR_BRANCH_BOITIER);
+        assertThat(testBoitier.getNbrBranchArduino()).isEqualTo(UPDATED_NBR_BRANCH_ARDUINO);
         assertThat(testBoitier.getCode()).isEqualTo(UPDATED_CODE);
     }
 
@@ -275,7 +304,11 @@ class BoitierResourceIT {
         Boitier partialUpdatedBoitier = new Boitier();
         partialUpdatedBoitier.setId(boitier.getId());
 
-        partialUpdatedBoitier.type(UPDATED_TYPE).code(UPDATED_CODE);
+        partialUpdatedBoitier
+            .type(UPDATED_TYPE)
+            .nbrBranchBoitier(UPDATED_NBR_BRANCH_BOITIER)
+            .nbrBranchArduino(UPDATED_NBR_BRANCH_ARDUINO)
+            .code(UPDATED_CODE);
 
         restBoitierMockMvc
             .perform(
@@ -291,6 +324,8 @@ class BoitierResourceIT {
         Boitier testBoitier = boitierList.get(boitierList.size() - 1);
         assertThat(testBoitier.getReference()).isEqualTo(DEFAULT_REFERENCE);
         assertThat(testBoitier.getType()).isEqualTo(UPDATED_TYPE);
+        assertThat(testBoitier.getNbrBranchBoitier()).isEqualTo(UPDATED_NBR_BRANCH_BOITIER);
+        assertThat(testBoitier.getNbrBranchArduino()).isEqualTo(UPDATED_NBR_BRANCH_ARDUINO);
         assertThat(testBoitier.getCode()).isEqualTo(UPDATED_CODE);
     }
 
@@ -306,7 +341,12 @@ class BoitierResourceIT {
         Boitier partialUpdatedBoitier = new Boitier();
         partialUpdatedBoitier.setId(boitier.getId());
 
-        partialUpdatedBoitier.reference(UPDATED_REFERENCE).type(UPDATED_TYPE).code(UPDATED_CODE);
+        partialUpdatedBoitier
+            .reference(UPDATED_REFERENCE)
+            .type(UPDATED_TYPE)
+            .nbrBranchBoitier(UPDATED_NBR_BRANCH_BOITIER)
+            .nbrBranchArduino(UPDATED_NBR_BRANCH_ARDUINO)
+            .code(UPDATED_CODE);
 
         restBoitierMockMvc
             .perform(
@@ -322,6 +362,8 @@ class BoitierResourceIT {
         Boitier testBoitier = boitierList.get(boitierList.size() - 1);
         assertThat(testBoitier.getReference()).isEqualTo(UPDATED_REFERENCE);
         assertThat(testBoitier.getType()).isEqualTo(UPDATED_TYPE);
+        assertThat(testBoitier.getNbrBranchBoitier()).isEqualTo(UPDATED_NBR_BRANCH_BOITIER);
+        assertThat(testBoitier.getNbrBranchArduino()).isEqualTo(UPDATED_NBR_BRANCH_ARDUINO);
         assertThat(testBoitier.getCode()).isEqualTo(UPDATED_CODE);
     }
 

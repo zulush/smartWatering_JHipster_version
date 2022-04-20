@@ -20,6 +20,12 @@
             <column name="type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="nbr_branch_boitier" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="nbr_branch_arduino" type="integer">
+                <constraints nullable="true" />
+            </column>
             <column name="code" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
@@ -46,6 +52,8 @@
             <column name="id" type="numeric"/>
             <column name="reference" type="numeric"/>
             <column name="type" type="string"/>
+            <column name="nbr_branch_boitier" type="numeric"/>
+            <column name="nbr_branch_arduino" type="numeric"/>
             <column name="code" type="string"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>

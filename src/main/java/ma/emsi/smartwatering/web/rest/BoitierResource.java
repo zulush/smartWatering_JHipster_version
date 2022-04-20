@@ -131,6 +131,12 @@ public class BoitierResource {
                 if (boitier.getType() != null) {
                     existingBoitier.setType(boitier.getType());
                 }
+                if (boitier.getNbrBranchBoitier() != null) {
+                    existingBoitier.setNbrBranchBoitier(boitier.getNbrBranchBoitier());
+                }
+                if (boitier.getNbrBranchArduino() != null) {
+                    existingBoitier.setNbrBranchArduino(boitier.getNbrBranchArduino());
+                }
                 if (boitier.getCode() != null) {
                     existingBoitier.setCode(boitier.getCode());
                 }

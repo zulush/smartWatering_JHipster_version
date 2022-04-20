@@ -38,6 +38,30 @@
             />
           </div>
           <div class="form-group">
+            <label class="form-control-label" for="boitier-nbrBranchBoitier">Nbr Branch Boitier</label>
+            <input
+              type="number"
+              class="form-control"
+              name="nbrBranchBoitier"
+              id="boitier-nbrBranchBoitier"
+              data-cy="nbrBranchBoitier"
+              :class="{ valid: !$v.boitier.nbrBranchBoitier.$invalid, invalid: $v.boitier.nbrBranchBoitier.$invalid }"
+              v-model.number="$v.boitier.nbrBranchBoitier.$model"
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-control-label" for="boitier-nbrBranchArduino">Nbr Branch Arduino</label>
+            <input
+              type="number"
+              class="form-control"
+              name="nbrBranchArduino"
+              id="boitier-nbrBranchArduino"
+              data-cy="nbrBranchArduino"
+              :class="{ valid: !$v.boitier.nbrBranchArduino.$invalid, invalid: $v.boitier.nbrBranchArduino.$invalid }"
+              v-model.number="$v.boitier.nbrBranchArduino.$model"
+            />
+          </div>
+          <div class="form-group">
             <label class="form-control-label" for="boitier-code">Code</label>
             <input
               type="text"

@@ -20,6 +20,8 @@ const validations: any = {
       numeric,
     },
     type: {},
+    nbrBranchBoitier: {},
+    nbrBranchArduino: {},
     code: {
       minLength: minLength(64),
     },

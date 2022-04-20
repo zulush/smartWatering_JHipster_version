@@ -5,6 +5,8 @@ export interface IBoitier {
   id?: number;
   reference?: number;
   type?: string | null;
+  nbrBranchBoitier?: number | null;
+  nbrBranchArduino?: number | null;
   code?: string | null;
   installations?: IInstallation[] | null;
   connexions?: IConnecte[] | null;
@@ -15,6 +17,8 @@ export class Boitier implements IBoitier {
     public id?: number,
     public reference?: number,
     public type?: string | null,
+    public nbrBranchBoitier?: number | null,
+    public nbrBranchArduino?: number | null,
     public code?: string | null,
     public installations?: IInstallation[] | null,
     public connexions?: IConnecte[] | null

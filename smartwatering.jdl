@@ -67,6 +67,8 @@ entity Installation {
 entity Boitier {
     reference Integer required,
     type String,
+    nbrBranchBoitier Integer,
+    nbrBranchArduino Integer,
     code String minlength(64),
 }
 
