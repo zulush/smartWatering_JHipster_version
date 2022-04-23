@@ -29,6 +29,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private Long id;
 
     @NotNull
@@ -58,7 +59,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     @NotNull
     @Column(nullable = false)
-    private boolean activated = false;
+    private boolean activated = true;
 
     @Size(min = 2, max = 10)
     @Column(name = "lang_key", length = 10)

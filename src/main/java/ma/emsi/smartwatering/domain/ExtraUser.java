@@ -20,7 +20,7 @@ public class ExtraUser implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "user_id")
     private Long id;
 
     @Column(name = "phone")
@@ -31,7 +31,7 @@ public class ExtraUser implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private User internalUser;
+    private User internalUser = null;
 
     @OneToMany(mappedBy = "extraUser")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
